@@ -10,6 +10,8 @@ public class MobileInputVisualizer : MonoBehaviour
     [SerializeField]
     private float swipeDistance = 80f;
 
+    [SerializeField] PlayerMover playerMover;
+
     private Vector2 startPosition;
     private Vector2 currentPosition;
 
@@ -104,6 +106,15 @@ public class MobileInputVisualizer : MonoBehaviour
         if (diff.magnitude < swipeDistance)
         {
             currentState = "Tap";
+
+            if(currentPosition.x < Screen.width / 2)
+            {
+                playerMover.MoveLeft();
+            }
+            else
+            {
+                playerMover.MoveRight();
+            }
         }
         else
         {
