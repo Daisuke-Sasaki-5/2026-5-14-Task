@@ -2,22 +2,29 @@ using UnityEngine;
 
 public class Fall : MonoBehaviour
 {
-    private RectTransform recttransform;
+    private Rigidbody2D rb;
 
     [SerializeField] private float speed = 300f;
 
     private void Awake()
     {
-        recttransform = GetComponent<RectTransform>();
+       rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        recttransform.anchoredPosition += Vector2.down * speed * Time.deltaTime;
+        Vector2 nextPos = rb.position + Vector2.down * speed * Time.fixedDeltaTime;
 
-        if(recttransform.anchoredPosition.y <= -1000f)
+        rb.MovePosition(nextPos);
+
+        if(nextPos.y <= -10f)
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Fall‘¤“–‚½‚è");
     }
 }

@@ -3,16 +3,10 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
-    private RectTransform rectTransform;
-
-    [SerializeField] RectTransform[] lanePoints;
+    [SerializeField] Transform[] lanePoints;
 
     private int currrentLane = 1;
 
-    private void Awake()
-    {
-        rectTransform = GetComponent<RectTransform>();
-    }
 
     private void Start()
     {
@@ -21,7 +15,7 @@ public class PlayerMover : MonoBehaviour
 
     private void MovetoLane()
     {
-        rectTransform.anchoredPosition = lanePoints[currrentLane].anchoredPosition;
+        transform.position = lanePoints[currrentLane].position;
     }
 
     public void MoveLeft()
@@ -44,5 +38,14 @@ public class PlayerMover : MonoBehaviour
 
         currrentLane++;
         MovetoLane();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fall"))
+        {
+            Debug.Log("‚ ‚½");
+            Destroy(gameObject);
+        }
     }
 }

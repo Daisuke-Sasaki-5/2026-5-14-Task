@@ -4,9 +4,7 @@ using UnityEngine;
 public class FallSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject fallPrefab;
-    [SerializeField] private RectTransform[] spawnPoints;
-
-    [SerializeField] private RectTransform parentUI;
+    [SerializeField] private Transform[] spawnPoints;
 
     [SerializeField] private float spawnInterval = 1.0f;
     private float timer;
@@ -26,13 +24,7 @@ public class FallSpawner : MonoBehaviour
     private void Spawn()
     {
         int randomIntex = UnityEngine.Random.Range(0, spawnPoints.Length);
-
-        RectTransform point = spawnPoints[randomIntex];
-
-        GameObject obj = Instantiate(fallPrefab, parentUI);
-
-        RectTransform rect = obj.GetComponent<RectTransform>();
-
-        rect.anchoredPosition = point.anchoredPosition;
+        
+        Instantiate(fallPrefab,spawnPoints[randomIntex].position,Quaternion.identity);
     }
 }

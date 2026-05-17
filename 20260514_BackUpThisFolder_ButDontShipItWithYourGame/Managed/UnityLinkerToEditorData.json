@@ -355,8 +355,10 @@
           },
           {
             "name": "Renderer",
-            "scenes": [],
-            "dependencyType": 1,
+            "scenes": [
+              "Assets/Scenes/GameScene.unity"
+            ],
+            "dependencyType": 0,
             "icon": null
           },
           {
@@ -413,7 +415,9 @@
           },
           {
             "name": "SpriteRenderer",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/GameScene.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -945,9 +949,31 @@
         "name": "Physics2D",
         "dependencies": [
           {
+            "name": "BoxCollider2D",
+            "scenes": [
+              "Assets/Scenes/GameScene.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "Collider2D",
+            "scenes": [],
+            "dependencyType": 1,
+            "icon": null
+          },
+          {
             "name": "Physics2DSettings",
             "scenes": [],
             "dependencyType": 1,
+            "icon": null
+          },
+          {
+            "name": "Rigidbody2D",
+            "scenes": [
+              "Assets/Scenes/GameScene.unity"
+            ],
+            "dependencyType": 0,
             "icon": null
           }
         ]
