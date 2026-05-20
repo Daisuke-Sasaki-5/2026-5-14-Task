@@ -10,8 +10,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
     private bool isStarted = false; // ゲーム開始済みフラグ
 
+    [Header("Playrセット")]
+    [SerializeField] private PlayerMover playerMover;
+
     private float score;
     public bool IsStarted => isStarted;
+    public bool isGameOver;
     
     private float startTiem;
     private float clearTime;
@@ -53,11 +57,13 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "GameScene") return;
 
         isStarted = false;
+        isGameOver= false;
+        score = 0f;
 
         // プレイヤー操作禁止
-        FindObjectOfType<PlayerMover>().enabled = false;
+        playerMover.enabled = false;
 
-        UIManager.Instance.ShowStartUI(this);
+        UIManager.Instance.ShowStartUI(true);
 
         // ゲーム停止中
         Time.timeScale = 0f;
@@ -65,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isStarted)
+        if (!isStarted && !isGameOver)
         {
 #if UNITY_EDITOR
             if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -92,14 +98,14 @@ public class GameManager : MonoBehaviour
         isStarted = true;
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
         UIManager.Instance.ShowStartUI(false);
 
         startTiem = Time.time;
 
-        FindObjectOfType<PlayerMover>().enabled = true;
+        playerMover.enabled = true;
     }
 
     public void TryClear()
@@ -134,5 +140,31 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+    }
+
+    public void GameOver()
+    {
+        if(isGameOver)
+        {
+            return;
+        }
+
+        isGameOver = true;
+        isStarted = false;
+
+        Time.timeScale = 0f;
+        UIManager.Instance.ShowGameOver(GetScore());
+    }
+
+    public void Replay()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void BackTitle()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("TitleScene");
     }
 }

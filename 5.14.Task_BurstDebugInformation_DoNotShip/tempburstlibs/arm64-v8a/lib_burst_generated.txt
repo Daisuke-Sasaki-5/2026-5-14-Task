@@ -12,6 +12,7 @@ Library: D:\Unity\SmartPhone\5.14\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_b
 --float-mode=Fast
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=D:\Unity\SmartPhone\5.14\Temp\Burst
+--debug=Full
 --key-folder=C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer
 --decode-folder=D:\Unity\SmartPhone\5.14\Library\Burst
 --output=D:\Unity\SmartPhone\5.14\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_burst_generated
@@ -30,6 +31,7 @@ Library: D:\Unity\SmartPhone\5.14\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_b
 --target-framework=NetFramework
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=D:\Unity\SmartPhone\5.14\Temp\Burst
+--debug=Full
 --key-folder=C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer
 --decode-folder=D:\Unity\SmartPhone\5.14\Library\Burst
 --output=D:\Unity\SmartPhone\5.14\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_burst_generated

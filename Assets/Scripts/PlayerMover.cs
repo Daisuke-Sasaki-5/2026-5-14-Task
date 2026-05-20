@@ -45,7 +45,9 @@ public class PlayerMover : MonoBehaviour
         if (collision.CompareTag("Fall"))
         {
             Debug.Log("‚ ‚½");
-            Destroy(gameObject);
+
+            enabled = false;
+            GameManager.instance.GameOver();
         }
     }
 }
