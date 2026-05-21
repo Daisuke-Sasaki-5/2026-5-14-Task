@@ -7,4 +7,4 @@
 
 工夫した点  
 InputSystemを利用し、PC操作とスマホ操作を切り替えられるように実装した  
-<img width="300" height="650" alt="スクリーンショット 2026-05-21 171908" src="https://github.com/user-attachments/assets/62077d18-ee30-44d0-82a6-4c31d0aa4c30" />
+<img width="400" height="550" alt="スクリーンショット 2026-05-21 171908" src="https://github.com/user-attachments/assets/62077d18-ee30-44d0-82a6-4c31d0aa4c30" />
